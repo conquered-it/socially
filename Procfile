@@ -1,1 +1,2 @@
-web: gunicorn socially.wsgi --log-file -
+web: gunicorn mydreamclass.wsgi
+release: python manage.py migrate

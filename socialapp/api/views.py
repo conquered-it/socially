@@ -1,14 +1,8 @@
 from socialapp.models import User, Relationship, Post, Like, Comment
-from django.http import JsonResponse, FileResponse, HttpResponse
 from socialapp.api.serializers import RegisterSerializer, RelationshipSerializer, UserProfileSerializer, PostSerializer, PostCreateSerializer, LikeSerializer, CommentSerializer, AllPostsSerializer
-from rest_framework import generics, filters
-from rest_framework.permissions import AllowAny
-from django.views.generic.detail import BaseDetailView
-from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
-from datetime import datetime
 
 class Register(generics.CreateAPIView):
     queryset = User.objects.all()

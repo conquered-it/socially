@@ -1,4 +1,3 @@
-from rest_framework.exceptions import ValidationError
 from rest_framework import serializers
 from socialapp.models import User, Relationship, Post, Like, Comment
 

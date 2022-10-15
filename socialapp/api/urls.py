@@ -13,8 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from socialapp.api.views import Register, Follow, Unfollow, UserProfile, PostCreate, PostView, LikeView, UnlikeView, CommentView, AllPostsView
 
@@ -26,7 +25,7 @@ urlpatterns = [
     path("unfollow/<int:pk>", Unfollow.as_view(), name="unfollow"),
     path("user", UserProfile.as_view(), name="user"),
     path("posts/", PostCreate.as_view(), name="posts"),
-    path("posts/<int:pk>", PostView.as_view(), name="posts"),
+    path("posts/<int:pk>", PostView.as_view(), name="post_view"),
     path("like/<int:pk>", LikeView.as_view(), name="like"),
     path("unlike/<int:pk>", UnlikeView.as_view(), name="unlike"),
     path("comment/<int:pk>", CommentView.as_view(), name="comment"),

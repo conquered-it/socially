@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-l^mw%6@j4#i#$_^ad(ig&vwdm43hfz%w*uf5_sfhcqrocl99a!"
+SECRET_KEY = os.getenv('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG_ENV = os.getenv("DEBUG", True)
@@ -147,3 +147,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
